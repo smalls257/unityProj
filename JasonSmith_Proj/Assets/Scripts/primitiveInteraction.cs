@@ -11,7 +11,7 @@ public class primitiveInteraction : MonoBehaviour
     private float posX;
     private float posY;
 
-    public float rotationSpeed = 15;
+    public float rotationSpeed = 1;
     public float scaleFactor = .5f;
 
     private userLog userLog;
@@ -39,12 +39,10 @@ public class primitiveInteraction : MonoBehaviour
         //Rotate Object
         if (Input.GetMouseButton(1))
         {
-            float rotationX = Input.GetAxis("Mouse X") * rotationSpeed * Mathf.Deg2Rad;
-            float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed * Mathf.Deg2Rad;
+            float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
+            float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            this.transform.Rotate(Vector3.up, -rotationX);
-            this.transform.Rotate(Vector3.right, -rotationY);
-
+            transform.Rotate(rotationSpeed* rotationY, -rotationSpeed * rotationX, 0, Space.World);
             userLog.writeStringToLog("Rotated: "+this.transform.name+" , "+transform.rotation);
         }
     }
