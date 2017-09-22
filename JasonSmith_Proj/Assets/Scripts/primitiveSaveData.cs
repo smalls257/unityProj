@@ -15,4 +15,8 @@ public class primitiveSaveData
     public float objRotY;
     public float objRotZ;
     public float objRotW;
+
+    public float scaleX;
+    public float scaleY;
+    public float scaleZ;
 }
